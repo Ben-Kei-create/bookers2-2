@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
+    <title>Bookers2Ver2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +10,39 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <header>
+  <a href= '/'>Bookers</a>
+    <% if user_signed_in? %>
+    <!--ログイン時に表示-->
+      <ul>
+        <%= link_to "Home✔︎", '/' %>
+      </ul>
+      <ul>
+        <%= link_to "Users", new_user_registration_path%>
+      </ul>
+      <ul>
+        <%= link_to "Books", new_user_registration_path %>
+      </ul>
+      <ul>
+      <%= link_to "Log out✔︎", destroy_user_session_path, method: :delete %>
+      </ul>
+    <% else %>
+    <!--ログインしていない時に表示-->
+      <ul>
+        <%= link_to "Home✔︎", '/' %>
+      </ul>
+      <ul>
+        <%= link_to "About✔︎", 'homes/about' %>
+      </ul>
+      <ul>
+        <%= link_to "Sign up✔", new_user_registration_path %>
+      </ul>
+      <ul>
+        <%= link_to "Log in✔", new_user_session_path %>
+      </ul>
+    <% end %>
+  </header>
+  <%= yield %>
+</body>
 </html>
