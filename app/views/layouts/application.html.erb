@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://kit.fontawesome.com/8cba356135.js" crossorigin="anonymous"></script>
     <title>Bookers2Ver2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -16,30 +17,30 @@
     <% if user_signed_in? %>
     <!--ログイン時に表示-->
       <ul>
-        <%= link_to "Home✔︎", '/' %>
-      </ul>
-      <ul>
+      <a class="fa-solid fa-house" href='/'>Home</a>
+
+      <a class="fa-solid fa-users"></a>
         <%= link_to "Users", new_user_registration_path%>
-      </ul>
-      <ul>
+
+      <a class="fa-solid fa-book-open"></a>
         <%= link_to "Books", new_user_registration_path %>
-      </ul>
-      <ul>
-      <%= link_to "Log out✔︎", destroy_user_session_path, method: :delete %>
+
+      <a class="fa-solid fa-right-from-bracket"></a>
+      <%= link_to "Log out︎", destroy_user_session_path, method: :delete %>
       </ul>
     <% else %>
     <!--ログインしていない時に表示-->
       <ul>
-        <%= link_to "Home✔︎", '/' %>
-      </ul>
-      <ul>
-        <%= link_to "About✔︎", 'homes/about' %>
-      </ul>
-      <ul>
-        <%= link_to "Sign up✔", new_user_registration_path %>
-      </ul>
-      <ul>
-        <%= link_to "Log in✔", new_user_session_path %>
+      <a class="fa-solid fa-house" href='/'>Home</a>
+
+      <a class="fa-solid fa-link"></a>
+        <%= link_to "About︎", 'homes/about' %>
+
+      <a class="fa-solid fa-user-plus"></a>
+        <%= link_to "Sign up", new_user_registration_path %>
+
+      <a class="fa-solid fa-right-from-bracket"></a>
+        <%= link_to "Log in", new_user_session_path %>
       </ul>
     <% end %>
   </header>

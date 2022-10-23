@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'net-smtp'
 
 gem 'devise'
+
+gem "font-awesome-sass", "~> 6.2.0"
