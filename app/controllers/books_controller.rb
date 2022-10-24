@@ -5,14 +5,11 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
-    if @book.save
-      redirect_to book_path(@book.id), notice: "Book was successfully created."
-    else
-    @books = Book.all
-    render :index
+    @book = Book.new(@book)
+    @book.user_id = current_user.id
+    @book.save
+    redirect_to '/books'
   end
-end
 
   def index
     @books = Book.all
@@ -27,8 +24,4 @@ end
 
   def edit
   end
-
-  def book_params
-    params.require(:book).permit(:title, :body)
   end
-end
