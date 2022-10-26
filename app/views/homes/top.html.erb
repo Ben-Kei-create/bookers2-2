@@ -1,12 +1,25 @@
+<body>
 <h1>welcome to
-<i class="fa-solid fa-book"></i>Bookers !!</h1>
-In<i class="fa-solid fa-book"></i><strong>Bookers</strong>,
+<i class="fa-solid fa-book bookers"></i><strong>Bookers !!</strong></h1>
+In<i class="fa-solid fa-book bookers"></i><strong>Bookers</strong>,
 <p>you can share and exchange your opinions ,inpressions ,and emotions<p>
 about various books!
 <p>
 
-<div class="category1" style="text-align:center"><%= link_to "Log in", new_user_session_path %></div><p>
-<div class="category2" style="text-align:center"><%= link_to "Sign up", new_user_registration_path %></div>
+<%= link_to new_user_session_path do %>
+  <div class="home-login">
+  Log in
+  <a class ="Link1" href="https://www.ipentec.com"></a>
+  </div>
+<% end %>
 <p>
+<%= link_to new_user_session_path do %>
+  <div class="home-signup">
+  Sign up
+  <a class ="Link2" href="https://www.ipentec.com"></a>
+  </div>
+<% end %>
+
 <p>CopyRight Infratop.inc
 
+</body>

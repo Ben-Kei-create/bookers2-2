@@ -4,6 +4,6 @@ devise_for :users
 root to:"homes#top"
 get'homes/about' => 'homes#about', as: 'about'
 post'books' => 'books#create'
-resources :books, only: [:new, :create, :index, :show, :edit]
+resources :books, only: [:create, :index, :show, :edit]
 resources :users, only: [:show, :edit, :update]
 end

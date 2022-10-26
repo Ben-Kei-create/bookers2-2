@@ -4,9 +4,12 @@
    <h3><%= image_tag @user.get_profile_image %></h3>
   <h3>name <%= @user.name %></h3>
   <h3>introduction <%= @user.introduction %></h3>
-
-<a class="fas fa-home" link = "edit_user_path" ></a>???アイコンをリンクにする方法
-<i class="fa-light fa-user-gear"></i>???なぜかアイコンが出ない。
-
-  <p><%= link_to "編集", edit_user_path %></p>現在
 </div>
+
+<%= link_to edit_user_path do %>
+<div class="sample"><i class="fas fa-user-cog"></i></div>
+<% end %>
+
+
+
+

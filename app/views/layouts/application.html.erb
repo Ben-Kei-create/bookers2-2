@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/8cba356135.js" crossorigin="anonymous"></script>
     <title>Bookers2Ver2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,37 +13,55 @@
   </head>
 
 <body>
+
+
+
+
+
+
   <header>
   <a href= '/'>Bookers</a>
     <% if user_signed_in? %>
     <!--ログイン時に表示-->
-      <ul>
-      <a class="fa-solid fa-house" href='/'>Home</a>
+<ul>
+<%= link_to '/' do %>
+<i class="fa-solid fa-house"></i>Home
+<% end %>
 
-      <a class="fa-solid fa-users"></a>
-        <%= link_to "Users", new_user_registration_path%>
+<%= link_to '/users/sign_up' do %>
+<i class="fa-solid fa-users"></i>Users
+<% end %>
 
-      <a class="fa-solid fa-book-open"></a>
-        <%= link_to "Books", new_user_registration_path %>
+<%= link_to '/books' do %>
+<i class="fa-solid fa-book-open"></i>Books
+<% end %>
 
-      <a class="fa-solid fa-right-from-bracket"></a>
-      <%= link_to "Log out︎", destroy_user_session_path, method: :delete %>
-      </ul>
-    <% else %>
-    <!--ログインしていない時に表示-->
-      <ul>
-      <a class="fa-solid fa-house" href='/'>Home</a>
+<%= link_to '/users/sign_out' do %>
+<i class="fa-solid fa-right-from-bracket"></i>Log out
+<% end %>
 
-      <a class="fa-solid fa-link"></a>
-        <%= link_to "About︎", 'homes/about' %>
+<% else %>
 
-      <a class="fa-solid fa-user-plus"></a>
-        <%= link_to "Sign up", new_user_registration_path %>
+   <!--ログアウト時に表示-->
+<ul>
+<%= link_to '/' do %>
+<i class="fa-solid fa-house"></i>Home
+<% end %>
 
-      <a class="fa-solid fa-right-from-bracket"></a>
-        <%= link_to "Log in", new_user_session_path %>
-      </ul>
-    <% end %>
+<%= link_to '/homes/about' do %>
+<i class="fas fa-link"></i>About
+<% end %>
+
+<%= link_to '/users/sign_up' do %>
+<i class="fas fa-user-plus"></i>Sign up
+<% end %>
+
+<%= link_to '/users/sign_in' do %>
+<i class="fas fa-sign-in-alt"></i>Log in
+<% end %>
+<% end %>
+
+
   </header>
   <%= yield %>
 </body>
