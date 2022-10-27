@@ -1,19 +1,22 @@
 <h1>Book detail</h1>
-
-<table>
-<thead>
+<table class="table">
+  <thead>
     <tr>
-      <th colspan="1"></th>
-      <th>Title</th>
-      <th>Opinion</th>
+      <th scope="col"><%= image_tag @books.get_image %><p></th>
+      <th scope="col"><%= @books.title %></th>
+      <th scope="col"><%= @books.body %></th>
+        <th scope="col">  <% if @books.user == current_user %>
+    <%= link_to "Edit", edit_book_path %>
+  <% end %></th>
+          <th scope="col">  <% if @books.user == current_user %>
+    <%= link_to "Destroy", book_path(@books), method: :delete %>
+  <% end %></th>
     </tr>
-</thead>
+    <tr>
+    <th scope="col"><%= @books.user.name %></th>
+    </tr>
 
-<% @books.each do |book| %>
-<tr>
-  <td><%= image_tag book.get_image %></td>
-      <td><%= link_to book.title, "/top" %></td>
-      <td><%= book.body %></td>
-    </tr>
-<% end %>
+
+  </thead>
 </table>
+

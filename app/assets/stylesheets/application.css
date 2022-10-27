@@ -1,96 +1,99 @@
-.home-login{
-        width: 400px;
-    display: inline-block;
-    padding: 5px 8px;
-    border-radius: 3px;
-    font-size: 11px;
+/*.home-login{*/
+/*    width: 400px;*/
+/*    display: inline-block;*/
+/*    padding: 5px 8px;*/
+/*    border-radius: 3px;*/
+/*    font-size: 11px;*/
+/*    position:relative;*/
+/*    width:280px;*/
+/*    background-color: #138496;*/
+/*    text-align: center;*/
+/*}*/
 
-    position:relative;
-    width:280px;
-    background-color: #138496;
-    text-align: center;
-}
+/*.home-login .Link1{*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
 
-.home-login .Link1{
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+/*.home-login Link1:hojnver {*/
+/*    background-color: #007bff;;*/
+/*}*/
 
-.home-signup{
-        width: 400px;
-    display: inline-block;
-    padding: 5px 8px;
-    border-radius: 3px;
-    font-size: 11px;
+/*.home-signup{*/
+/*        width: 400px;*/
+/*    display: inline-block;*/
+/*    padding: 5px 8px;*/
+/*    border-radius: 3px;*/
+/*    font-size: 11px;*/
 
-    position:relative;
-    width:280px;
-    background-color: #28a745;
-    text-align: center;
-}
+/*    position:relative;*/
+/*    width:280px;*/
+/*    background-color: #28a745;*/
+/*    text-align: center;*/
+/*}*/
 
-.home-signup .Link2{
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+/*.home-signup .Link2{*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
 
-.bookers{
-  color: black;
-}
+/*.home-signup Link2:hojnver {*/
+/*    background-color: #28a745;*/
+/*}*/
 
-.about-title{
-  text-align: center;
-}
+/*.bookers{*/
+/*  color: black;*/
+/*}*/
 
-i{
- color: white;
-}
+/*.about-title{*/
+/*  text-align: center;*/
+/*}*/
 
-a{
-  color: white;
-  text-decoration: none;
-}
+/*i{*/
+/* color: white;*/
+/*}*/
 
-
-header{
-    width: 100%;
-    height: 100%;
-    background-color: #343a40;
-}
-
-.fas fa-home{
-  color: grey;
-}
+/*a{*/
+/*  color: white;*/
+/*  text-decoration: none;*/
+/*}*/
 
 
+/*header{*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-color: #343a40;*/
+/*}*/
 
+/*.fas fa-home{*/
+/*  color: grey;*/
+/*}*/
 
-/* 通常時の背景色 */
-.sample {
-    width: 400px;
-    display: inline-block;
-    padding: 5px 8px;
-    border-radius: 3px;
-    font-size: 11px;
-    background-color: #b1eeff;;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all  0.3s ease;
-    }
+/*.sample {*/
+/*    width: 400px;*/
+/*    display: inline-block;*/
+/*    padding: 5px 8px;*/
+/*    border-radius: 3px;*/
+/*    font-size: 11px;*/
+/*    background-color: #b1eeff;;*/
+/*    -webkit-transition: all 0.3s ease;*/
+/*    -moz-transition: all 0.3s ease;*/
+/*    -o-transition: all 0.3s ease;*/
+/*    transition: all  0.3s ease;*/
+/*    }*/
 
 /* マウスオーバー時の背景色 */
-.sample:hojnver {
-    background-color: #6c757d;
-    }
+/*.sample:hojnver {*/
+/*    background-color: #6c757d;*/
+/*    }*/
 
 
 
