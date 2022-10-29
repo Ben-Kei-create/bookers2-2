@@ -1,13 +1,13 @@
 <h1>Books</h1>
-<table>
-<thead>
+<table class="table">
+  <thead>
     <tr>
-      <th colspan="1"></th>
-      <th>Title</th>
-      <th>Opinion</th>
+    <th scope="col" colspan="1"></th>
+      <th scope="col">Title</th>
+      <th scope="col">Opinion</th>
     </tr>
-</thead>
-
+  </thead>
+  <tbody>
 <% @books.each do |b| %>
     <tr>
     <td><%= image_tag b.get_image %></td>
@@ -21,7 +21,9 @@
     <td><%= b.body %></td>
     </tr>
     <% end %>
+</tbody>
 </table>
+
 
 <h1>New Book</h1>
 　　<%= form_with model: @book do |f| %>

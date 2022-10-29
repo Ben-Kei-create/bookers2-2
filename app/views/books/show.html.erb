@@ -1,22 +1,30 @@
 <h1>Book detail</h1>
 <table class="table">
-  <thead>
-    <tr>
+<thead>
+<tr>
       <th scope="col"><%= image_tag @books.get_image %><p></th>
-      <th scope="col"><%= @books.title %></th>
+      <th scope="col"><%= link_to book_path do %>
+                      <%= @books.title %>
+                      <% end %></th>
       <th scope="col"><%= @books.body %></th>
-        <th scope="col">  <% if @books.user == current_user %>
-    <%= link_to "Edit", edit_book_path %>
-  <% end %></th>
-          <th scope="col">  <% if @books.user == current_user %>
-    <%= link_to "Destroy", book_path(@books), method: :delete %>
-  <% end %></th>
+      <th scope="col">
+        <%=link_to(edit_book_path) do %>
+　　    <button class="btn btn-success" >Edit</button>
+  　　　　<%end%>
+      </th>
+      <!--%= link_to 'Edit', edit_book_path, %></th>-->
+      <!--<a class="btn btn-sm btn-success" href="/books/:id/edit">Edit</a>-->
+      <th scope="col">
+           <%=link_to(book_path) do %>
+           <a data-confirm="本当に消しますか？" class="btn btn-danger text-white" data-method="delete">Destroy</a>
+           <!--%= link_to "Destroy", book_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>-->
+      　<%end%>
+      </th>
+
     </tr>
     <tr>
     <th scope="col"><%= @books.user.name %></th>
     </tr>
-
-
   </thead>
 </table>
 

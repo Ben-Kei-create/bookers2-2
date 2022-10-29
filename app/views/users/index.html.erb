@@ -1,1 +1,18 @@
 <h1>Users</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">image</th>
+      <th scope="col">name</th>
+      <th scope="col" colspan="1"></th>
+    </tr>
+  </thead>
+  <tbody>
+<% @users.each do |us| %>
+    <tr>
+    <td><%= image_tag us.get_profile_image %></td>
+    <td><%= us.name %></td>
+    <td><%= link_to book_path(us.id) do %>show<% end %></td>
+    <% end %>
+</tbody>
+</table>

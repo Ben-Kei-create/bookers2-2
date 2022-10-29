@@ -17,27 +17,30 @@ class BooksController < ApplicationController
 
   def show
     @books = Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def edit
     @book = Book.find(params[:id])
   end
 
-  def update
-     @book = Book.find(params[:id])
-  if @book.update(book_params)
-    redirect_to books_path, notice: "Book was successfully updated."
+ def update
+    @book = Book.find(params[:id])
+  if  @book.update(book_params)
+    redirect_to @book, notice: "Book was successfully updated."
   else
     flash.now[:danger] = "Book wasn't successfully updated."
-    render edit_book_path
+    render 'edit'
   end
-end
+    # redirect_to books_path(@book)
+ end
 
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to books_path
-  end
+    redirect_to '/books'
+    # 投稿一覧画面へリダイレクト
+ end
 
     def book_params
     params.require(:book).permit(:title, :body)

@@ -1,6 +1,6 @@
 <div class="container">
 <div class="row">
-<div class="col-sm-12 mt-2 col-md-8 col-lg-5 px-5 px-sm-0 ">
+<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
 <h2>Sign up</h2>
 
 <%= form_with model: @user, url: user_registration_path do |f| %>
@@ -28,8 +28,11 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
 <% end %>
-          <button type="button" class="actions btn btn-success btn-sm w-auto">Sign up</button>
-<p>
+
 <%= render "devise/shared/links" %>
 </div></div></div>
