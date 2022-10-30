@@ -7,7 +7,8 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.save
-    redirect_to books_path
+    redirect_to book_path(@book.id)
+    flash[:notice] = "You have created book successfully"
   end
 
   def index
@@ -16,34 +17,46 @@ class BooksController < ApplicationController
   end
 
   def show
-    @books = Book.find(params[:id])
-    @book = Book.find(params[:id])
+   @books = Book.find(params[:id])
+   @book = Book.new
   end
 
   def edit
     @book = Book.find(params[:id])
+  unless @book.user == current_user
+  　redirect_to  book_path
+  end
   end
 
  def update
     @book = Book.find(params[:id])
-  if  @book.update(book_params)
-    redirect_to @book, notice: "Book was successfully updated."
+  if  @book.user != current_user
+    redirect_to book_path
   else
-    flash.now[:danger] = "Book wasn't successfully updated."
-    render 'edit'
+    if @book.update(book_params)
+        redirect_to book_path
+    else
+        render :edit
+        flash[:alert] = ""
+    end
   end
-    # redirect_to books_path(@book)
- end
+end
 
   def destroy
     @book = Book.find(params[:id])
-    @book.destroy
-    redirect_to '/books'
-    # 投稿一覧画面へリダイレクト
- end
+    if @book.user != current_user
+       redirect_to  book_path
+    else
+      @book.destroy
+    end
+  end
+
+# flash[:notice] = "ログアウトしました"
+#     redirect_to '/books'
+#     redirect_to root_path
 
     def book_params
     params.require(:book).permit(:title, :body)
-  end
+    end
 
   end

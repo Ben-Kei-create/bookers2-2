@@ -1,30 +1,45 @@
+<div class="container">
+<div class="row">
+
+
+<%= render 'book', book: @book, user: @books.user %>
+
+<div class="col-md-8 offset-md-1">
 <h1>Book detail</h1>
 <table class="table">
-<thead>
+<tbody>
 <tr>
-      <th scope="col"><%= image_tag @books.get_image %><p></th>
-      <th scope="col"><%= link_to book_path do %>
-                      <%= @books.title %>
-                      <% end %></th>
-      <th scope="col"><%= @books.body %></th>
-      <th scope="col">
-        <%=link_to(edit_book_path) do %>
-　　    <button class="btn btn-success" >Edit</button>
-  　　　　<%end%>
-      </th>
-      <!--%= link_to 'Edit', edit_book_path, %></th>-->
-      <!--<a class="btn btn-sm btn-success" href="/books/:id/edit">Edit</a>-->
-      <th scope="col">
-           <%=link_to(book_path) do %>
-           <a data-confirm="本当に消しますか？" class="btn btn-danger text-white" data-method="delete">Destroy</a>
-           <!--%= link_to "Destroy", book_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>-->
-      　<%end%>
+      <th>
+      <%= link_to user_path(@books.user.id) do %>
+      <%= image_tag @books.user.get_profile_image %><br>
+      <%= @books.user.name %>
+      <% end %>
       </th>
 
-    </tr>
-    <tr>
-    <th scope="col"><%= @books.user.name %></th>
-    </tr>
-  </thead>
+      <th>
+      <%= link_to book_path(@books.id) do %>
+      <%= @books.title %>
+      <% end %>
+      </th>
+
+      <th>
+      <%= @books.body %>
+      </th>
+
+<!--ログイン時のみ表示させたい-->
+      <th>
+      <%=link_to "Edit", edit_book_path(@books.id), class: "btn btn-success" %>
+      </th>
+
+      <th>
+      <%=link_to(book_path) do %>
+      <a data-confirm="本当に消しますか？" class="btn btn-danger text-white" data-method="delete">Destroy</a>
+      <%end%>
+      </th>
+
+</tr>
+</tbody>
 </table>
-
+</div>
+</div>
+<div>

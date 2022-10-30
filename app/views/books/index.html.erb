@@ -1,4 +1,12 @@
-<h1>Books</h1>
+<div class="container">
+<div class="row">
+
+<%= render 'book', book: @book, user: current_user %>
+<!--部分テンプレを呼び出しをしている-->
+
+<div class="col-md-8 offset-md-1 mt-4">
+
+<h2>Books</h2>
 <table class="table">
   <thead>
     <tr>
@@ -11,25 +19,16 @@
 <% @books.each do |b| %>
     <tr>
     <td><%= image_tag b.get_image %></td>
-
     <td>
     <%= link_to book_path(b.id) do %>
     <%= b.title %>
     <% end %>
     </td>
-
     <td><%= b.body %></td>
     </tr>
     <% end %>
 </tbody>
 </table>
-
-
-<h1>New Book</h1>
-　　<%= form_with model: @book do |f| %>
-    <h4>Title</h4>
-      <%= f.text_field :title %>
-    <h4>Opinion</h4>
-      <%= f.text_area :body %><br/>
-      <%= f.submit 'Create Book' %>
- <% end %>
+</div>
+</div>
+</div>

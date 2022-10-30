@@ -1,4 +1,12 @@
-<h1>Users</h1>
+<div class="container">
+<div class="row">
+
+<%= render 'user', book: @book, user: current_user %>
+<!--部分テンプレを呼び出しをしている-->
+
+<div class="col-md-8 offset-md-1 mt-4">
+
+<h2>Users</h2>
 <table class="table">
   <thead>
     <tr>
@@ -12,7 +20,10 @@
     <tr>
     <td><%= image_tag us.get_profile_image %></td>
     <td><%= us.name %></td>
-    <td><%= link_to book_path(us.id) do %>show<% end %></td>
+    <td><%= link_to "show", book_path(us.id) %></td>
     <% end %>
 </tbody>
 </table>
+</div>
+</div>
+</div>

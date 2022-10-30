@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
-    end
+     @user = User.find(params[:id])
+  end
 
   def edit
     @user = User.find(params[:id])
@@ -15,11 +15,15 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
-    @user = User.new
-    @books = Book.all
-    @book = Book.new
+    if @users = User.all
+       @user = User.new
+       @books = Book.all
+       @book = Book.new
+    else
+      flash.now[:danger] = "Book wasn't successfully show."
+      render '/user'
   end
+end
 
 
   private
