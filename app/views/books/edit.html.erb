@@ -1,3 +1,6 @@
+<div class="container">
+<div class="row mt-4">
+<div class="mx-auto">
 <h1>Editing Book</h1>
 
 <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |b| %>
@@ -12,4 +15,6 @@
   <%= b.submit 'Update Book' %>
 
 <% end %>
-<!--<a class="btn btn-sm btn-success" data-method="update"></a>-->
+</div>
+</div>
+</div>

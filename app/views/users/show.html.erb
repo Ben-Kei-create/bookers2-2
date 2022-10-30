@@ -1,16 +1,45 @@
-<div class="col-md-3">
-<h2>User info</h2>
-<h3><%= image_tag user.get_profile_image %></h3>
+<!--部分テンプレートで呼び出したいが、うまくいかない-->
+<%= flash[:notice] %>
+
+<div class="container">
+<div class="row">
+
+<%= render 'user', book: @book, user: @user %>
+
+<div class="col-md-8 offset-md-1">
+<h1>Books</h1>
 <table class="table">
+<thead>
 <tr>
-  <th><h3>name</h3></th>
-  <th><h3><%= user.name %></h3></th>
+     <td colspan="1"></td>
+     <td>Title</td>
+     <td>Opinion</td>
 </tr>
+</thead>
+
+<tbody>
+<% @books.each do |b| %>
 <tr>
-  <th><h3>introduction</h3></th>
-  <th><h3><%= user.introduction %></h3><th>
+      <td>
+      <%= link_to user_path(b.user.id) do %>
+      <%= image_tag b.user.get_profile_image %>
+      <% end %>
+      </td>
+
+      <td>
+      <%= link_to book_path(b.id) do %>
+      <%= b.title %>
+      <% end %>
+      </td>
+
+      <td>
+      <%= b.body %>
+      </td>
 </tr>
-</table>
-<%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
-<div class="sample"><i class="fas fa-user-cog"></i></div>
 <% end %>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>

@@ -1,6 +1,7 @@
+<%= flash[:notice] %>
+
 <div class="container">
 <div class="row">
-
 
 <%= render 'book', book: @book, user: @books.user %>
 
@@ -9,37 +10,34 @@
 <table class="table">
 <tbody>
 <tr>
-      <th>
+      <td>
       <%= link_to user_path(@books.user.id) do %>
       <%= image_tag @books.user.get_profile_image %><br>
       <%= @books.user.name %>
       <% end %>
-      </th>
+      </td>
 
-      <th>
+      <td>
       <%= link_to book_path(@books.id) do %>
       <%= @books.title %>
       <% end %>
-      </th>
+      </td>
 
-      <th>
+      <td>
       <%= @books.body %>
-      </th>
+      </td>
 
 <!--ログイン時のみ表示させたい-->
-      <th>
-      <%=link_to "Edit", edit_book_path(@books.id), class: "btn btn-success" %>
-      </th>
+      <td>
+      <%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-success" %>
+      </td>
 
-      <th>
-      <%=link_to(book_path) do %>
-      <a data-confirm="本当に消しますか？" class="btn btn-danger text-white" data-method="delete">Destroy</a>
-      <%end%>
-      </th>
-
+      <td>
+      <%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger text-white" %>
+      </td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div>
+</div>
