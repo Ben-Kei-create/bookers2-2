@@ -2,24 +2,23 @@
 
 <div class="container">
 <div class="row mt-4">
-<div class="mx-auto">
+<div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 <h1>welcome to
-<i class="fa-solid fa-book bookers"></i><strong>Bookers !</strong></h1>
+<i class="fas fa-book"></i><strong>Bookers !</strong></h1>
 </div></div>
 
 <div class="row">
 <div class="mx-auto">
-In<i class="fa-solid fa-book bookers"></i><strong>Bookers</strong>,<p><p>
+In<i class="fas fa-book"></i><strong>Bookers</strong>,<p><p>
 you can share and exchange your opinions , inpressions , and emotions<p>
 about various books!
 <p>
       <div class="btn-wrapper col-10 mx-auto">
         <div class="row">
-
-          <button onclick= "location.href= '/users/sign_in'" type="button" class="btn btn-info btn-sm w-100">Log in</a>
-        </div><p>
+        <%= link_to 'Log in',new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+        </div>
         <div class="row">
-         <button onclick= "location.href= '/users/sign_up'" type="button" class="btn btn-success btn-sm w-100">Sign up</button>
+        <%= link_to 'Sign up',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
         </div>
       </div>
     </div>

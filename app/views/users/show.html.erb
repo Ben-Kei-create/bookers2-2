@@ -1,13 +1,12 @@
-<!--部分テンプレートで呼び出したいが、うまくいかない-->
 <%= flash[:notice] %>
 
-<div class="container">
+<div class="container px-5 px-sm-0">
 <div class="row">
 
 <%= render 'user', book: @book, user: @user %>
 
-<div class="col-md-8 offset-md-1">
-<h1>Books</h1>
+<div class="col-md-8 offset-md-1 mt-3">
+<h2>Books</h2>
 <table class="table">
 <thead>
 <tr>
@@ -18,22 +17,22 @@
 </thead>
 
 <tbody>
-<% @books.each do |b| %>
+<% @books.each do |book| %>
 <tr>
       <td>
-      <%= link_to user_path(b.user.id) do %>
-      <%= image_tag b.user.get_profile_image %>
+      <%= link_to user_path(book.user.id) do %>
+      <%= image_tag book.user.get_profile_image(100, 100) %>
       <% end %>
       </td>
 
       <td>
-      <%= link_to book_path(b.id) do %>
-      <%= b.title %>
+      <%= link_to book_path(book.id) do %>
+      <%= book.title %>
       <% end %>
       </td>
 
       <td>
-      <%= b.body %>
+      <%= book.body %>
       </td>
 </tr>
 <% end %>

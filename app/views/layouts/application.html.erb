@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/8cba356135.js" crossorigin="anonymous"></script>
-    <title>課題３　作成中</title>
+    <title>(修)Bookers2Ver2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -27,36 +27,57 @@
             <ul class="navbar-nav ml-auto">
 
 <% if user_signed_in? %>
-<a class="nav-link text-light" href="/">
-<i class="fas fa-home"></i>Home</a>
+
 <li>
-<a class="nav-link text-light" href="/users">
-<i class="fa-solid fa-users"></i>Users</a>
+<%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
+<i class="fas fa-home"></i>Home
+<% end %>
 </li>
+
 <li>
-<a class="nav-link text-light" href="/books">
-<i class="fa-solid fa-book-open"></i>Books</a>
+<%= link_to users_path, class: 'nav-link text-white' do %>
+<i class="fas fa-users"></i>Users
+<% end %>
 </li>
+
 <li>
-<a class="nav-link text-light" href="/users/sign_out">
-<i class="fa-solid fa-right-from-bracket"></i>Log out</a>
+<%= link_to books_path, class: 'nav-link text-white' do %>
+<i class="fas fa-book-open"></i>Books
+<% end %>
 </li>
+
+<li>
+<%= link_to destroy_user_session_path, class: 'nav-link text-white' do %>
+<i class="fas fa-sign-out-alt"></i>Log out
+<% end %>
+</li>
+
 <% else %>
-<a class="nav-link text-light" href="/">
-<i class="fas fa-home"></i>Home</a>
+
 <li>
-<a class="nav-link text-light" href="/homes/about">
-<i class="fas fa-link"></i>About</a>
+<%= link_to root_path, class: 'nav-link text-white' do %>
+<i class="fas fa-home"></i>Home
+<% end %>
 </li>
+
 <li>
-<a class="nav-link text-light" href="/users/sign_up">
-<i class="fas fa-user-plus"></i>Sign up</a>
+<%= link_to about_path, class: 'nav-link text-white' do %>
+<i class="fas fa-link"></i>About
+<% end %>
 </li>
+
 <li>
-<a class="nav-link text-light" href="/users/sign_in">
-<i class="fas fa-sign-in-alt"></i>Log in</a>
+<%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+<i class="fas fa-user-plus"></i>Sign up
+<% end %>
 </li>
-          <% end %>
+
+<li>
+<%= link_to new_user_session_path, class: 'nav-link text-white' do %>
+<i class="fas fa-sign-in-alt"></i>Log in
+<% end %>
+</li>
+<% end %>
             </ul>
           </div>
         </div>

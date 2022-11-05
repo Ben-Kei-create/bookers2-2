@@ -1,21 +1,21 @@
 class User < ApplicationRecord
 
-  validates :name, presence: true
-  validates :introduction, presence: true
+  validates :name, uniqueness: true,
+    length: { minimum: 2, maximum: 20 }
+  validates :email, presence: true
+  validates :introduction, length: { maximum: 50 }
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
   has_many :books, dependent: :destroy
-  has_one_attached :post_image
+  has_one_attached :profile_image
 
-def get_profile_image
-    unless post_image.attached?
+def get_profile_image(width, height)
+    unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      post_image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpeg')
+      profile_image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpeg')
     end
-    post_image.variant(resize_to_limit: [100, 100]).processed
+    profile_image.variant(resize_to_limit: [width, height]).processed
   end
 end

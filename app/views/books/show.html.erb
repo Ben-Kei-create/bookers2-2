@@ -6,13 +6,13 @@
 <%= render 'book', book: @book, user: @books.user %>
 
 <div class="col-md-8 offset-md-1">
-<h1>Book detail</h1>
+<h2>Book detail</h2>
 <table class="table">
 <tbody>
 <tr>
       <td>
       <%= link_to user_path(@books.user.id) do %>
-      <%= image_tag @books.user.get_profile_image %><br>
+      <%= image_tag @books.user.get_profile_image(100,100) %><br>
       <%= @books.user.name %>
       <% end %>
       </td>
@@ -28,6 +28,20 @@
       </td>
 
 <!--ログイン時のみ表示させたい-->
+        <!--<td>-->
+        <!--% if @user.id == current_user.id %>-->
+        <!--%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-success" %>-->
+        <!--% end %>-->
+        <!--</td>-->
+
+        <!--<td>-->
+        <!--% if @user.id == current_user.id %>-->
+        <!--%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger text-white" %>-->
+        <!--% end %>-->
+        <!--</td>-->
+
+
+      <% if @books.user.id == current_user.id %>
       <td>
       <%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-success" %>
       </td>
@@ -35,6 +49,9 @@
       <td>
       <%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger text-white" %>
       </td>
+      <% end %>
+
+
 </tr>
 </tbody>
 </table>
