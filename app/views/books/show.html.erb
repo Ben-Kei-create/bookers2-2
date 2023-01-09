@@ -27,20 +27,6 @@
       <%= @books.body %>
       </td>
 
-<!--ログイン時のみ表示させたい-->
-        <!--<td>-->
-        <!--% if @user.id == current_user.id %>-->
-        <!--%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-success" %>-->
-        <!--% end %>-->
-        <!--</td>-->
-
-        <!--<td>-->
-        <!--% if @user.id == current_user.id %>-->
-        <!--%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger text-white" %>-->
-        <!--% end %>-->
-        <!--</td>-->
-
-
       <% if @books.user.id == current_user.id %>
       <td>
       <%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-success" %>
